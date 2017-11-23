@@ -81,7 +81,6 @@ if __name__ == "__main__":
             try:
                 score = sess.run(model_spec.score)
             except tf.errors.OutOfRangeError:
-                print(y_dev[np.argsort(-score, 0)][:851].sum() / 851.)
                 print(metrics.roc_auc_score(y_dev, score))
                 feature_cols = []
                 with open("data/feature_cols.txt", "r") as f:
